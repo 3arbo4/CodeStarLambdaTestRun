@@ -17,6 +17,7 @@ public class HelloWorldHandler implements RequestHandler<Object, Object> {
     public Object handleRequest(final Object input, final Context context) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
+        headers.put("Access-Control-Allow-Origin", "*"); // needed to reference default  context 
         return new GatewayResponse(new JSONObject().put("Output", "Humans are here!").toString(), headers, 200);
     }
 }
